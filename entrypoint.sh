@@ -3,6 +3,7 @@ function join { local IFS=","; echo "$*"; }
 
 echo "Initial"
 export LANG=C
+taskset -pc $$
 CORES_ALL=$(taskset -pc $$ | cut -d' ' -f6)
 
 # Generate list of all available CPUs
